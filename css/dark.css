@@ -1,0 +1,73 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+#colorlib-page {
+  background: #121212;
+}
+
+#colorlib-aside {
+  background: #1a1a1a;
+}
+
+#colorlib-logo a {
+  color: #ffffff;
+}
+
+#colorlib-main-menu ul li a {
+  color: #ffffff;
+}
+
+#colorlib-main-menu ul li.colorlib-active a {
+  color: #F96D00;
+}
+
+.colorlib-footer p {
+  color: #ffffff;
+}
+
+.colorlib-footer ul li a {
+  color: #ffffff;
+}
+
+.ftco-section {
+  background: #121212;
+}
+
+.ftco-footer {
+  background: #1a1a1a;
+}
+
+.blog-entry .text h3 a {
+  color: #ffffff;
+}
+
+.blog-entry .text .category {
+  color: #F96D00;
+}
+
+.blog-entry .text .meta-wrap .meta span {
+  color: #ffffff;
+}
+
+.blog-entry .text .meta-wrap .meta i {
+  color: #F96D00;
+}
+
+.blog-entry .text .author h3 a {
+  color: #ffffff;
+}
+
+.ftco-footer-widget h2 {
+  color: #ffffff;
+}
+
+.ftco-footer-widget ul.categories li a {
+  color: #ffffff;
+}
+
+.block-23 ul li,
+.block-23 ul li a {
+  color: #ffffff;
+}

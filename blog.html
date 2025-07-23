@@ -39,6 +39,7 @@
 					<li class="colorlib-active"><a href="blog.html">Blog</a></li>
 					<li><a href="about.html">About</a></li>
 					<li><a href="contact.html">Contact</a></li>
+					<li><a href="#" id="theme-toggle"><i class="icon-moon"></i></a></li>
 				</ul>
 			</nav>
 
@@ -62,37 +63,8 @@
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
           </div>
         </div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="blog-entry ftco-animate">
-							<a href="blog-post.html" class="img img-2" style="background-image: url(images/image_1.jpg);"></a>
-							<div class="text text-2 pt-2 mt-3">
-								<span class="category mb-3 d-block"><a href="#">Data Science</a></span>
-	              <h3 class="mb-4"><a href="blog-post.html">The Importance of Data Cleaning</a></h3>
-	              <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost</p>
-	              <div class="author mb-4 d-flex align-items-center">
-				<a href="#" class="img" style="background-image: url(images/author.jpg);"></a>
-				<div class="ml-3 info">
-					<span>Written by</span>
-					<h3><a href="#">Admin</a>, <span>July 23, 2024</span></h3>
-				</div>
+		<div class="row" id="blog-posts">
 			</div>
-	              <div class="meta-wrap align-items-center">
-			<div class="half order-md-last">
-				<p class="meta">
-					<span><i class="icon-heart"></i>3</span>
-					<span><i class="icon-eye"></i>100</span>
-					<span><i class="icon-comment"></i>5</span>
-				</p>
-			</div>
-			<div class="half">
-				<p><a href="blog-post.html" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
-			</div>
-	              </div>
-	            </div>
-						</div>
-			</div>
-		</div>
 	</div>
     </section>
     <footer class="ftco-footer ftco-bg-dark ftco-section">
@@ -156,6 +128,50 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    // Fetch the blog posts from the JSON file
+    fetch('posts/posts.json')
+      .then(response => response.json())
+      .then(posts => {
+        const blogPosts = document.getElementById('blog-posts');
+        // Loop through the posts and create a new element for each one
+        posts.forEach(post => {
+          const postElement = document.createElement('div');
+          postElement.className = 'col-md-4';
+          postElement.innerHTML = `
+            <div class="blog-entry ftco-animate">
+              <a href="blog-post.html?id=${post.id}" class="img img-2" style="background-image: url(${post.image});"></a>
+              <div class="text text-2 pt-2 mt-3">
+                <span class="category mb-3 d-block"><a href="#">Data Science</a></span>
+                <h3 class="mb-4"><a href="blog-post.html?id=${post.id}">${post.title}</a></h3>
+                <p class="mb-4">${post.content.substring(0, 100)}...</p>
+                <div class="author mb-4 d-flex align-items-center">
+                  <a href="#" class="img" style="background-image: url(images/author.jpg);"></a>
+                  <div class="ml-3 info">
+                    <span>Written by</span>
+                    <h3><a href="#">Admin</a>, <span>July 23, 2024</span></h3>
+                  </div>
+                </div>
+                <div class="meta-wrap align-items-center">
+                  <div class="half order-md-last">
+                    <p class="meta">
+                      <span><i class="icon-heart"></i>3</span>
+                      <span><i class="icon-eye"></i>100</span>
+                      <span><i class="icon-comment"></i>5</span>
+                    </p>
+                  </div>
+                  <div class="half">
+                    <p><a href="blog-post.html?id=${post.id}" class="btn py-2">Continue Reading <span class="ion-ios-arrow-forward"></span></a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          blogPosts.appendChild(postElement);
+        });
+      });
+  </script>
 
   </body>
 </html>
