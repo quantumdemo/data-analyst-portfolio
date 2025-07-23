@@ -189,3 +189,17 @@
 
 })(jQuery);
 
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+const darkTheme = document.createElement('link');
+darkTheme.rel = 'stylesheet';
+darkTheme.href = 'css/dark.css';
+
+themeToggle.addEventListener('click', (e) => {
+	e.preventDefault();
+	if (document.head.contains(darkTheme)) {
+		document.head.removeChild(darkTheme);
+	} else {
+		document.head.appendChild(darkTheme);
+	}
+});
